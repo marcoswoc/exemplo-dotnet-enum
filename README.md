@@ -3,9 +3,10 @@
 # Como retornar a string de um enum em uma API .NET 
 
 ## Introdução
-Por padrão API's .NET retornam os índices de enumeradores(enum) mas nem sempre esse é o cenário ideal de retorno, para algumas situações desejamos retornar a string do enumerador, o .NET oferece a opção de serializar valores enum como strings.
+Por padrão API's .NET retornam o valor inteiro(int) de enumeradores(enum) mas nem sempre esse é o cenário ideal de retorno, para algumas situações desejamos retornar a string do enumerador, o .NET oferece a opção de serializar valores enum como strings.
 
 Neste artigo vou criar um exemplo de API que retorna a string de enumeradores.
+Você pode acessar o repositorio desse projeto em [exemplo-dotnet-enum](https://github.com/marcoswoc/exemplo-dotnet-enum).
 
 ## Pré-requisitos
 
@@ -14,6 +15,7 @@ Neste artigo vou criar um exemplo de API que retorna a string de enumeradores.
 + Terminal de sua preferência
 
 ## Criando o projeto
+
 Com o comando **`dotnet new webapi`** vamos criar um projeto webapi, o parâmetro **`-o`** indica o diretorio onde o projeto será criado.
 
     dotnet new webapi -o exemplo-dotnet-enum
@@ -87,7 +89,7 @@ namespace exemplo_dotnet_enum.Controllers
 
 Feito isso podemos executar nossa api observe em qual porta está rodando e acesse o swagger, no exemplo estou acessando o seguinte endereço **``https://localhost:7151/swagger/index.html ``**
 
-Executando a rota Get/Cliente nossa API retorna os clientes, mas ainda não temos o resultado esperado pois está sendo retornado o índice dos enums.
+Executando a rota Get/Cliente a API retorna os clientes, mas ainda não temos o resultado esperado pois está sendo retornado o inteiro dos enums.
 
 ![img-1](Img/img-1.png)
 
@@ -138,6 +140,6 @@ Vamos executar novamente nossa api e teremos o seguinte resultado
 
 
 ## Conclusão
-O método **``AddJsonOptions``** nos permite configurar as opções para serialização JSON, e por padrão os enums são serializados como números, para serializar os enums como texto (string) utilizamos a classe **``JsonStringEnumConverter``** como parâmetro do método **``JsonSerializerOptions.Converters.Add()``**. Fica essa dica para quando queremos expor o texto de enumeradores.  
+O método **``AddJsonOptions``** nos permite configurar as opções para serialização JSON, e por padrão os enums são serializados como números (int), para serializar os enums como texto (string) utilizamos uma instância da classe **``JsonStringEnumConverter``** como parâmetro do método **``JsonSerializerOptions.Converters.Add()``** realizando assim a conversão de enums para seus respectivos textos. Para mais informações sobre **``JsonSerializerOptions``**  consulte a documentação oficial - [Microsoft docs](https://docs.microsoft.com/pt-br/dotnet/api/system.text.json.jsonserializeroptions?view=net-6.0).
 
 
