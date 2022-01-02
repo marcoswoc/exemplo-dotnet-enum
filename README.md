@@ -3,9 +3,9 @@
 # Como retornar a string de um enum em uma API .NET 
 
 ## Introdução
-Por padrão API's .NET retornam o valor inteiro(int) de enumeradores(enum) mas nem sempre esse é o cenário ideal de retorno, para algumas situações desejamos retornar a string do enumerador, o .NET oferece a opção de serializar valores enum como strings.
+Por padrão API's .NET retornam o valor inteiro(int) de um enum mas nem sempre esse é o cenário ideal de retorno, para algumas situações desejamos retornar a string do enumerador, o .NET oferece a opção de serializar valores enum como strings.
 
-Neste artigo vou criar um exemplo de API que retorna a string de enumeradores.
+Neste artigo vou criar um exemplo de API que retorna a string de um enum.
 Você pode acessar o repositorio desse projeto em [exemplo-dotnet-enum](https://github.com/marcoswoc/exemplo-dotnet-enum).
 
 ## Pré-requisitos
